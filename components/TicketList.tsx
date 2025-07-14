@@ -155,7 +155,6 @@ export const TicketList: React.FC<TicketListProps> = ({ refreshTrigger }) => {
             </CardDescription>
           </div>
           <div className="flex items-center gap-2">
-            <GenerateTickets onTicketsGenerated={fetchTickets} />
             <Button variant="outline" size="sm" onClick={fetchTickets} disabled={isLoading}>
               <RefreshCw className="h-4 w-4 mr-2" />
               Refresh
@@ -261,7 +260,7 @@ export const TicketList: React.FC<TicketListProps> = ({ refreshTrigger }) => {
                   {currentTickets.map((ticket) => (
                     <TableRow key={ticket.id}>
                       <TableCell>{ticket.sequenceNumber}</TableCell>
-                      <TableCell className="font-mono text-sm">{ticket.id.slice(-8)}</TableCell>
+                      <TableCell className="font-mono text-sm">{ticket._id.slice(-8)}</TableCell>
                       <TableCell>
                         <Badge variant={ticket.status === "active" ? "default" : "secondary"}>{ticket.status}</Badge>
                       </TableCell>
